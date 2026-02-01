@@ -24,6 +24,8 @@ Though lanyard still returns the Avatar, Avatar Decoration, Nameplate
 - Nameplates: `https://cdn.discordapp.com/assets/collectibles/nameplates/${collection}$/${name}$/asset.webm`
 - Badges: `https://cdn.discordapp.com/badge-icons/${hash}.png`
 - Emojis: `https://cdn.discordapp.com/emojis/${id}.png`
+- Guild Tag Icons: `https://cdn.discordapp.com/clan-badges/{serverid}/{hash}.png`
+- Guild Tag Server: `https://discord.com/api/v9/guilds/{serverid}/profile` (Needs Authentication)
 
 Dustin's API returns the data pretty neatly, all you have to do is replace the placeholder `${}` text in above endpoints with what the API returns.
 
