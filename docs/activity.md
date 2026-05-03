@@ -13,6 +13,9 @@ For most of these APIs, you can specify a `?size=` URL parameter, to get a speci
 - Rich Presence: `https://cdn.discordapp.com/app-assets/${app-id}/${id}.png`
 - Games: `https://cdn.discordapp.com/app-icons/${app-id}/${id}.png`
     - Or `https://dcdn.dstn.to/app-icons/${app-id}`
+    - When only the application_id is known, you can use:
+      `https://discord.com/api/v10/applications/${app-id}/rpc`
+      then use the returned icon hash with the app-icons url above.
 
 ### What Lanyard returns
 ```json
@@ -69,12 +72,24 @@ For most of these APIs, you can specify a `?size=` URL parameter, to get a speci
 
 ### Function
 ```javascript
-const resolveImage = (image, id = null) => {
+const resolveImage = async (image, id = null) => {
     if (!image) {
-        // use Dustin's api for this
-        // since retrieving this image requires us to call "https://discord.com/api/v9/applications/public?application_ids=${id}"
-        // which cannot be called without authorization
-        return id ? `https://dcdn.dstn.to/app-icons/${id}` : null;
+        // no asset hash — fetch the app's icon hash from RPC endpoint
+        if (!id) return null;
+
+        try {
+            const res = await fetch(`https://discord.com/api/v10/applications/${id}/rpc`);
+            if (!res.ok) return null;
+            const data = await res.json();
+            return data.icon
+                ? `https://cdn.discordapp.com/app-icons/${id}/${data.icon}.png?size=512`
+                : null;
+        } catch {
+            return null;
+        }
+
+        // alternatively, use Dustin's API:
+        // return `https://dcdn.dstn.to/app-icons/${id}`;
     }
 
     if (image.startsWith("mp:external/")) {
