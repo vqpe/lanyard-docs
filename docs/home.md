@@ -6,7 +6,7 @@ This website was not created nor endorsed by anyone representing Lanyard.
 <div class="info-box">
     <h4>Contributors welcomed</h4>
     <p>Anyone can contribute!</p>
-    <p>just submit a pull request on the [github](https://github.com/vqpe/lanyard-docs)</p>
+    <p>just submit a pull request on the github -> https://github.com/vqpe/lanyard-docs</p>
 </div>
 
 ## Docs
