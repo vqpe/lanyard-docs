@@ -4,17 +4,17 @@
 For most of these APIs, you can specify a `?size=` URL parameter, to get a specific size of that image, not all images have all sizes, generally, you can use `?size=4096` to get the biggest image available.
 :::
 
-> https://api.lanyard.rest/v1/users/${userid}
+> https://api.lanyard.rest/v1/users/{userid}
 > wss://api.lanyard.rest/socket
 
 ### Endpoints:
-- External: `https://media.discordapp.net/external/${hash}`
-- Spotify: `https://i.scdn.co/image/${hash}`
-- Rich Presence: `https://cdn.discordapp.com/app-assets/${app-id}/${id}.png`
-- Games: `https://cdn.discordapp.com/app-icons/${app-id}/${id}.png`
-    - Or `https://dcdn.dstn.to/app-icons/${app-id}`
+- External: `https://media.discordapp.net/external/{hash}`
+- Spotify: `https://i.scdn.co/image/{hash}`
+- Rich Presence: `https://cdn.discordapp.com/app-assets/{app-id}/{id}.png`
+- Games: `https://cdn.discordapp.com/app-icons/{app-id}/{id}.png`
+    - Or `https://dcdn.dstn.to/app-icons/{app-id}`
     - When only the application_id is known, you can use:
-      `https://discord.com/api/v10/applications/${app-id}/rpc`
+      `https://discord.com/api/v10/applications/{app-id}/rpc`
       then use the returned icon hash with the app-icons url above.
 
 ### What Lanyard returns
