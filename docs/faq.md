@@ -8,13 +8,13 @@ Join the Lanyard Discord server. Your account gets picked up automatically once 
 
 ## I joined but still get `user_not_monitored`. Why?
 
-Double-check that you're using your actual Discord user ID, not a message ID or server ID. Enable Developer Mode in Discord settings, right-click your profile, and select "Copy User ID". Make sure you're querying: `https://api.lanyard.rest/v1/users/YOUR_ID`
+Double-check that you're using your actual Discord user ID, not a message ID or server ID. Enable Developer Mode in Discord settings, right-click your profile, and select "Copy User ID". Make sure you're querying: https://api.lanyard.rest/v1/users/{YOUR_ID}
 
 
 
 What is the Lanyard API key for?
 
-The API key is only needed for K/V write operations and the `@me` route. Reading another user's presence publicly at `https://api.lanyard.rest/v1/users/USER_ID` requires no key.
+The API key is only needed for K/V write operations and the `@me` route. Reading another user's presence publicly at https://api.lanyard.rest/v1/users/{USER_ID} requires no key.
 
 
 
@@ -115,4 +115,4 @@ Yes. The official repo includes Docker instructions: https://github.com/Phineas/
 Read the pinned messages in #support first. They cover the most common issues, Spotify problems especially. For questions about Dustin's API, use https://dcdn.dstn.to/gist as the reference.
 
 
-<small>written by [Aureal](https://aureal.dev/)</small>
+<small>written by [Aureal](https://aureal.dev/) @ 06/06/2026</small>
