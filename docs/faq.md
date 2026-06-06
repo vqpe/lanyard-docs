@@ -1,3 +1,5 @@
+# Further documentation can be found at https://lanyard.eggsy.xyz/
+
 ## How do I get monitored by Lanyard?
 
 Join the Lanyard Discord server. Your account gets picked up automatically once you're a member.
@@ -16,10 +18,6 @@ The API key is only needed for K/V write operations and the `@me` route. Reading
 
 
 
-**PRESENCE & DATA**
-
-
-
 ## Why isn't my Spotify showing up?
 
 Check the pinned messages in the support channel first. Common causes: Spotify not linked to Discord, Spotify activity privacy turned off, or an intermittent gateway issue. If your status shows in Discord but not Lanyard, wait a bit.
@@ -34,13 +32,13 @@ Discord doesn't send banner or accent color data over the gateway socket. Lanyar
 
 ## Does Lanyard support Discord badges (Nitro, HypeSquad, etc.)?
 
-No. Lanyard has never returned badge data. For badges, use Dustin's API: `https://dcdn.dstn.to/profile/USER_ID`. It's an unofficial tool, not maintained by the Lanyard team, and has no guaranteed uptime.
+No. Lanyard has never returned badge data. For badges, use Dustin's API: https://dcdn.dstn.to/profile/{USER_ID}. It's an unofficial tool, not maintained by the Lanyard team, and has no guaranteed uptime.
 
 
 
 ## Where do I get Discord profile banners via API?
 
-Dustin's API: `https://dcdn.dstn.to/banners/USER_ID?size=SIZE`. Lanyard does not expose banners.
+Dustin's API: https://dcdn.dstn.to/banners/{USER_ID}?size={SIZE}. Lanyard does not expose banners.
 
 
 
@@ -64,13 +62,9 @@ One of four strings: `online`, `idle`, `dnd`, or `offline`.
 
 
 
-**WEBSOCKET**
-
-
-
 ## Should I use REST or WebSocket?
 
-WebSocket is strongly preferred for live data on a website. REST requires repeated polling. WebSocket pushes updates to you in real time. Use `wss://api.lanyard.rest/socket` and run `/socket` in the `kv-commands` channel for full setup instructions.
+WebSocket is strongly preferred for live data on a website. REST requires repeated polling. WebSocket pushes updates to you in real time. Use `wss://api.lanyard.rest/socket`, for more info, run `/socket` in the `kv-commands` channel for full setup instructions.
 
 
 
@@ -80,19 +74,15 @@ Occasional disconnections are expected. You need to implement reconnection logic
 
 
 
-**DUSTIN'S API (dcdn.dstn.to)**
-
-
-
 ## What is Dustin's API?
 
 A separate unofficial API maintained by Dustin (a Lanyard contributor). It exposes Discord profile data not available through Lanyard, including badges, banners, accent colors, connected accounts, and collectibles.
 
-Profile: `https://dcdn.dstn.to/profile/USER_ID`
+Profile: https://dcdn.dstn.to/profile/{USER_ID}
 
-Banner: `https://dcdn.dstn.to/banners/USER_ID`
+Banner: https://dcdn.dstn.to/banners/{USER_ID}
 
-Docs: `https://dcdn.dstn.to/gist`
+Docs: https://dcdn.dstn.to/gist
 
 
 
@@ -104,11 +94,7 @@ The maintainer describes it as not a guaranteed-uptime service. It works fine fo
 
 ## Do I need to be in the Lanyard server to use it?
 
-No. It's a public API endpoint. Send a request with any Discord user ID.
-
-
-
-**MISC**
+Yes, you need to be in the server for the bot to receive your gateway events, without that, it doesn't have any info on you.
 
 
 
@@ -120,13 +106,13 @@ Enable Developer Mode (Settings > Advanced > Developer Mode), then right-click y
 
 ## Can I self-host Lanyard?
 
-Yes. The official repo includes Docker instructions: `https://github.com/Phineas/lanyard#self-host-with-docker`. This lets you monitor users without requiring them to join a specific Discord server.
+Yes. The official repo includes Docker instructions: https://github.com/Phineas/lanyard#self-host-with-docker. This lets you monitor users without requiring them to join a specific Discord server.
 
 
 
 ## Where do I ask for help?
 
-Read the pinned messages in #support first. They cover the most common issues, Spotify problems especially. For questions about Dustin's API, use `https://dcdn.dstn.to/gist` as the reference.
+Read the pinned messages in #support first. They cover the most common issues, Spotify problems especially. For questions about Dustin's API, use https://dcdn.dstn.to/gist as the reference.
 
 
 <small>written by [Aureal](https://aureal.dev/)</small>
