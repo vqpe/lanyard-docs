@@ -1,18 +1,33 @@
-# Further documentation can be found at https://lanyard.eggsy.xyz/
+# Where do I ask for help?
+
+Read the pinned messages in #support first. They cover the most common issues, Spotify problems especially.
+For questions about Dustin's API, use https://dcdn.dstn.to/gist as the reference.
+And also make sure to check all of the below.
+If none of these answer your question, feel free to ask in the #support channel.
+
+---
 
 ## How do I get monitored by Lanyard?
 
 Join the Lanyard Discord server. Your account gets picked up automatically once you're a member.
+You will need to stay in this server to keep being monitored by Lanyard.
+
+
+
+## How do I find my Discord user ID?
+
+Enable Developer Mode (Settings > Advanced > Developer Mode), then right-click your username and select "Copy User ID".
 
 
 
 ## I joined but still get `user_not_monitored`. Why?
 
-Double-check that you're using your actual Discord user ID, not a message ID or server ID. Enable Developer Mode in Discord settings, right-click your profile, and select "Copy User ID". Make sure you're querying: https://api.lanyard.rest/v1/users/{YOUR_ID}
+Double-check that you're using your actual Discord user ID (see above), not a message ID or server ID.
+Make sure you're querying: https://api.lanyard.rest/v1/users/{YOUR_ID} (without the { })
 
 
 
-What is the Lanyard API key for?
+## What is the Lanyard API key for?
 
 The API key is only needed for K/V write operations and the `@me` route. Reading another user's presence publicly at https://api.lanyard.rest/v1/users/{USER_ID} requires no key.
 
@@ -20,7 +35,9 @@ The API key is only needed for K/V write operations and the `@me` route. Reading
 
 ## Why isn't my Spotify showing up?
 
-Check the pinned messages in the support channel first. Common causes: Spotify not linked to Discord, Spotify activity privacy turned off, or an intermittent gateway issue. If your status shows in Discord but not Lanyard, wait a bit.
+Check the pinned messages in the support channel first.
+Common causes: Spotify not linked to Discord, Spotify activity privacy turned off, or an intermittent gateway issue.
+If your activity shows for yourself on your profile, it doesn't automatically mean that Lanyard can see it too, if it isn't picking it up, theres something wrong on your end 99.99% of the time.
 
 
 
@@ -32,45 +49,7 @@ Discord doesn't send banner or accent color data over the gateway socket. Lanyar
 
 ## Does Lanyard support Discord badges (Nitro, HypeSquad, etc.)?
 
-No. Lanyard has never returned badge data. For badges, use Dustin's API: https://dcdn.dstn.to/profile/{USER_ID}. It's an unofficial tool, not maintained by the Lanyard team, and has no guaranteed uptime.
-
-
-
-## Where do I get Discord profile banners via API?
-
-Dustin's API: https://dcdn.dstn.to/banners/{USER_ID}?size={SIZE}. Lanyard does not expose banners.
-
-
-
-## What is K/V and how do I use it?
-
-K/V is key-value storage that lets you attach custom data to your Lanyard response. Use the Lanyard bot in the bot commands channel:
-
-`.set KEY VALUE` stores a value
-
-`.get KEY` retrieves it
-
-`.del KEY` removes it
-
-You can also set K/V via authenticated API requests. Results show up under the `kv` object in your Lanyard response.
-
-
-
-## What does `discord_status` return?
-
-One of four strings: `online`, `idle`, `dnd`, or `offline`.
-
-
-
-## Should I use REST or WebSocket?
-
-WebSocket is strongly preferred for live data on a website. REST requires repeated polling. WebSocket pushes updates to you in real time. Use `wss://api.lanyard.rest/socket`, for more info, run `/socket` in the `kv-commands` channel for full setup instructions.
-
-
-
-## My WebSocket keeps disconnecting. Is that normal?
-
-Occasional disconnections are expected. You need to implement reconnection logic in your client. Send a heartbeat every 30 seconds as specified in the `heartbeat_interval` from the server's hello payload, and reconnect with backoff when the connection drops.
+No. Lanyard doesn't return badge data (except for public_flags, though irrelevant). For badges, use Dustin's API: https://dcdn.dstn.to/profile/{USER_ID}. It's an unofficial tool, not maintained by the Lanyard team, and has no guaranteed uptime.
 
 
 
@@ -92,15 +71,35 @@ The maintainer describes it as not a guaranteed-uptime service. It works fine fo
 
 
 
-## Do I need to be in the Lanyard server to use it?
+## What is K/V and how do I use it?
 
-Yes, you need to be in the server for the bot to receive your gateway events, without that, it doesn't have any info on you.
+K/V is key-value storage that lets you attach custom data to your Lanyard response. Use the Lanyard bot in the bot commands channel or in dms with the bot:
+
+`.set KEY VALUE` stores a value
+
+`.get KEY` retrieves it
+
+`.del KEY` removes it
+
+You can also set K/V via authenticated API requests. Results show up under the `kv` object in your Lanyard response.
 
 
 
-## How do I find my Discord user ID?
+## What does `discord_status` return?
 
-Enable Developer Mode (Settings > Advanced > Developer Mode), then right-click your username and select "Copy User ID".
+One of four strings: `online`, `idle`, `dnd`, or `offline`.
+
+
+
+## Should I use REST or WebSocket?
+
+WebSocket is strongly preferred for live data on a website. REST requires repeated polling. WebSocket pushes updates to you in real time. Use `wss://api.lanyard.rest/socket`, for more info, run `/socket` in the server for full setup instructions.
+
+
+
+## My WebSocket keeps disconnecting. Is that normal?
+
+Occasional disconnections are expected. You need to implement reconnection logic in your client. Send a heartbeat every 30 seconds as specified in the `heartbeat_interval` from the server's hello payload, and reconnect with backoff when the connection drops.
 
 
 
@@ -110,9 +109,6 @@ Yes. The official repo includes Docker instructions: https://github.com/Phineas/
 
 
 
-## Where do I ask for help?
-
-Read the pinned messages in #support first. They cover the most common issues, Spotify problems especially. For questions about Dustin's API, use https://dcdn.dstn.to/gist as the reference.
-
 
 <small>written by [Aureal](https://aureal.dev/) @ 06/06/2026</small>
+<small>improved by [schuh](https://schuh.wtf) @ 08/02/2026</small>
