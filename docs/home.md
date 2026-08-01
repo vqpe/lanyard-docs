@@ -12,6 +12,11 @@ This website was not created nor endorsed by anyone representing Lanyard.
 ## Docs
 
 ### Fetching Images
-<div class="ml-3 mb-4">
+<div class="ml-4 mb-4">
     <ul data-nav-id="fetching-images-list"></ul>
+</div>
+
+### Misc
+<div class="ml-4 mb-4">
+    <ul data-nav-id="misc-list"></ul>
 </div>
