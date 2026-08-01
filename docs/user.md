@@ -51,6 +51,5 @@ But as this doesn't cover all badges, and doesn't provide the icon hash, it is p
 | `1 << 17` | `VERIFIED_DEVELOPER` | Early Verified Bot Developer |
 | `1 << 18` | `CERTIFIED_MODERATOR` | Moderator Programs Alumni |
 | `1 << 19` | `BOT_HTTP_INTERACTIONS` | Bot uses only HTTP interactions and is shown in the online member list |
-| `1 << 22` | `ACTIVE_DEVELOPER` | User is an Active Developer |
 
 (from https://discord.com/developers/docs/resources/user)
