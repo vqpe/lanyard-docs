@@ -13,6 +13,7 @@ Though lanyard still returns the Avatar, Avatar Decoration, Nameplate
 > https://api.lanyard.rest/v1/users/{userid}
 > wss://api.lanyard.rest/socket
 
+See [Getting User Presence Data](#presence) for the REST endpoint, or [Working with WebSockets](#websockets) for live updates.
 
 ### Endpoints:
 - Avatars: `https://cdn.discordapp.com/avatars/{userid}/{hash}.png`

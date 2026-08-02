@@ -24,12 +24,13 @@ Enable Developer Mode (Settings > Advanced > Developer Mode), then right-click y
 
 Double-check that you're using your actual Discord user ID (see above), not a message ID or server ID.
 Make sure you're querying: https://api.lanyard.rest/v1/users/{YOUR_ID} (without the { })
+You can test your ID directly in the playground on [Getting User Presence Data](#presence).
 
 
 
 ## What is the Lanyard API key for?
 
-The API key is only needed for K/V write operations and the `@me` route. Reading another user's presence publicly at https://api.lanyard.rest/v1/users/{USER_ID} requires no key.
+The API key is only needed for [K/V](#kv#getting-an-api-key) write operations and the `@me` route. Reading another user's presence publicly at https://api.lanyard.rest/v1/users/{USER_ID} requires no key.
 
 
 
@@ -43,13 +44,13 @@ If your activity shows for yourself on your profile, it doesn't automatically me
 
 ## Why are `banner` and `accent_color` always null?
 
-Discord doesn't send banner or accent color data over the gateway socket. Lanyard never receives it. A common workaround is storing those values manually in K/V.
+Discord doesn't send banner or accent color data over the gateway socket. Lanyard never receives it. A common workaround is storing those values manually in [K/V](#kv).
 
 
 
 ## Does Lanyard support Discord badges (Nitro, HypeSquad, etc.)?
 
-No. Lanyard doesn't return badge data (except for public_flags, though irrelevant). For badges, use Dustin's API: https://dcdn.dstn.to/profile/{USER_ID}. It's an unofficial tool, not maintained by the Lanyard team, and has no guaranteed uptime.
+No. Lanyard doesn't return badge data (except for [`public_flags`](#user#badges), though irrelevant). For badges, use Dustin's API: https://dcdn.dstn.to/profile/{USER_ID}. It's an unofficial tool, not maintained by the Lanyard team, and has no guaranteed uptime.
 
 
 
@@ -73,7 +74,7 @@ The maintainer describes it as not a guaranteed-uptime service. It works fine fo
 
 ## What is K/V and how do I use it?
 
-K/V is key-value storage that lets you attach custom data to your Lanyard response. Use the Lanyard bot in the bot commands channel or in dms with the bot:
+[K/V](#kv) is key-value storage that lets you attach custom data to your Lanyard response. Use the Lanyard bot in the bot commands channel or in dms with the bot:
 
 `.set KEY VALUE` stores a value
 
@@ -93,13 +94,13 @@ One of four strings: `online`, `idle`, `dnd`, or `offline`.
 
 ## Should I use REST or WebSocket?
 
-WebSocket is strongly preferred for live data on a website. REST requires repeated polling. WebSocket pushes updates to you in real time. Use `wss://api.lanyard.rest/socket`, for more info, run `/socket` in the server for full setup instructions.
+WebSocket is strongly preferred for live data on a website. REST requires repeated polling. WebSocket pushes updates to you in real time. Use `wss://api.lanyard.rest/socket`, for more info, see [Working with WebSockets](#websockets) or run `/socket` in the server for full setup instructions.
 
 
 
 ## My WebSocket keeps disconnecting. Is that normal?
 
-Occasional disconnections are expected. You need to implement reconnection logic in your client. Send a heartbeat every 30 seconds as specified in the `heartbeat_interval` from the server's hello payload, and reconnect with backoff when the connection drops.
+Occasional disconnections are expected. You need to implement reconnection logic in your client. Send a heartbeat every 30 seconds as specified in the [`heartbeat_interval`](#websockets#connecting) from the server's hello payload, and reconnect with backoff when the connection drops.
 
 
 

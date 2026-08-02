@@ -7,6 +7,8 @@ For most of these APIs, you can specify a `?size=` URL parameter, to get a speci
 > https://api.lanyard.rest/v1/users/{userid}
 > wss://api.lanyard.rest/socket
 
+See [Getting User Presence Data](#presence) for the REST endpoint, or [Working with WebSockets](#websockets) for live updates.
+
 ### Endpoints:
 - External: `https://media.discordapp.net/external/{hash}`
 - Spotify: `https://i.scdn.co/image/{hash}`
