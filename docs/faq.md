@@ -105,7 +105,7 @@ Occasional disconnections are expected. You need to implement reconnection logic
 
 ## Can I self-host Lanyard?
 
-Yes. The official repo includes Docker instructions: https://github.com/Phineas/lanyard#self-host-with-docker. This lets you monitor users without requiring them to join a specific Discord server.
+Yes, see [Self-Hosting Lanyard](#self-hosting) for the Docker setup. This lets you monitor users without requiring them to join the Lanyard Discord server.
 
 
 
