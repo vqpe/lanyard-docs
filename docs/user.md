@@ -30,7 +30,7 @@ See [Getting User Presence Data](#presence) for the REST endpoint, or [Working w
 - Emojis: `https://cdn.discordapp.com/emojis/{id}.png`
 - Guild Tag Icons: `https://cdn.discordapp.com/clan-badges/{serverid}/{hash}.png`
 - Guild Tag Server: `https://discord.com/api/v9/guilds/{serverid}/profile` (Needs Authentication)
-Widget Image: `https://cdn.discordapp.com/widget-assets/{userid}/{file_id}?format=webp&animated=true` - theres a `"is_animated"` field so factor that in
+- Widget Image: `https://cdn.discordapp.com/widget-assets/{userid}/{file_id}?format=webp&animated=true` - theres a `"is_animated"` field so factor that in
 
 
 Dustin's API returns the data pretty neatly, all you have to do is replace the placeholder `{}` text in above endpoints with what the API returns.
